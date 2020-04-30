@@ -11,6 +11,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
+   
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -51,6 +52,15 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    proxy: {//配置跨域
+      '/api': {
+        'target': 'http://193.112.73.103:8080',
+        'changeOrigin': true,
+        'pathRewrite': {
+          '^/api': ''
+        }
+      },
+    }, 
 
     /**
      * Source Maps
